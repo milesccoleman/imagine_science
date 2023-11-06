@@ -67,7 +67,7 @@ export default {
             model: "dall-e-3",
             prompt:
               'Make an image that represents the content of the following statement. Statement: ' +
-              this.textPrompt2,
+              this.textPrompt1,
               n: 1,
               size: "1024x1024",
           };
