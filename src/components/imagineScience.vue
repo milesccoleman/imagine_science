@@ -97,7 +97,7 @@ export default {
           });
 
           const params = {
-            model: "dall-e-2",
+            model: "dall-e-3",
             prompt:
               'Make an image that represents the content of the following statement. Statement: ' +
               this.textPrompt2,
