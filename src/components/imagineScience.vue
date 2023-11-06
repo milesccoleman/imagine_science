@@ -80,8 +80,8 @@ export default {
 
               var div = document.getElementById("image1");
               var p = document.createElement("img");
+              p.style.width = '778px';
               p.src = this.imageURL;
-              p.setAttribute("className", "aiImage");
               div.append(p);
             })
             .catch((error) => {
@@ -116,9 +116,9 @@ export default {
 
               var div2 = document.getElementById("image2");
               var p2 = document.createElement("img");
+              p2.style.width = '778px';
               p2.src = this.imageURL2;
               div2.append(p2);
-              p2.setAttribute("className", "aiImage");
               document.getElementById("forButton").focus();
             })
             .catch((error) => {
@@ -240,9 +240,6 @@ font-weight: bold;
 }
 #anti, #image2 {
 display: none;
-}
-aiImage {
-width: 512px;
 }
 
 </style>
