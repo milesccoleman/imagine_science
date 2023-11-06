@@ -64,12 +64,12 @@ export default {
           });
 
           const params = {
-            model: "dall-e-2",
+            model: "dall-e-3",
             prompt:
               'Make an image that represents the content of the following statement. Statement: ' +
               this.textPrompt2,
               n: 1,
-              size: "512x512",
+              size: "1024x1024",
           };
 
           client
@@ -81,6 +81,7 @@ export default {
               var div = document.getElementById("image1");
               var p = document.createElement("img");
               p.src = this.imageURL;
+              p.setAttribute("className", "aiImage");
               div.append(p);
             })
             .catch((error) => {
@@ -102,7 +103,7 @@ export default {
               'Make an image that represents the content of the following statement. Statement: ' +
               this.textPrompt2,
               n: 1,
-              size: "512x512",
+              size: "1024x1024",
           };
 
           client
@@ -117,6 +118,7 @@ export default {
               var p2 = document.createElement("img");
               p2.src = this.imageURL2;
               div2.append(p2);
+              p2.setAttribute("className", "aiImage");
               document.getElementById("forButton").focus();
             })
             .catch((error) => {
@@ -215,6 +217,7 @@ font-size: 25px;
 #stanceExplanation2 {
 color: #FF007F;
 font-weight: bold;
+font-size: 25px;
 }
 #toggle {
 width: 100%;
@@ -237,6 +240,9 @@ font-weight: bold;
 }
 #anti, #image2 {
 display: none;
+}
+aiImage {
+width: 512px;
 }
 
 </style>
