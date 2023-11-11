@@ -8,8 +8,8 @@
   <span v-if="showImages" id="buttonArray"><button id="vaccinationButton" @click="vaccination">Vaccination</button><button id="climateChangeButton" @click="climateChange">Climate Change</button><button id="roundEarthButton" @click="roundEarth">Round Earth</button></span><br><br>
   <span v-if="showImages" id="toggle"><button id="forButton" class="toggle" @click="trigger" >For<br>{{typeOfScience}}</button><button id="againstButton" class="toggle" @click="trigger2">Against<br>{{typeOfScience}}</button></span>
 	<p v-if="showImages" id="imagesContainer">
-		<span class="textPrompt" id="pro"><section id="websiteName1" class="typeOfScience">{{websiteName}}</section><br><section class="websiteName">Source: {{source1}}</section><br><span id="stanceExplanation1">{{stanceExplanation}} </span><br><br><section class="images" id="image1"><img class="loadingGif" v-if="loadingGif" :src="imgURL1" ></section><br><br> <span class="originaTextandPrompt"><b>Sampled Text</b><br> {{originalText1}}<br><br><b>Image Description (Generated from Sampled Text)</b><br>{{textPrompt1}}</span></span>
-		<span class="textPrompt" id="anti"><section id="websiteName2" class="typeOfScience">{{websiteName2}}</section><br><section class="websiteName">Source: {{source2}}</section><br><span id="stanceExplanation2">{{stanceExplanation2}} </span><br><br><section class="images" id="image2"><img class="loadingGif" v-if="loadingGif" :src="imgURL2" ></section><br><br> <span class="originaTextandPrompt"><b>Sampled Text</b><br> {{originalText2}}<br><br><b>Image Description (Generated from Sampled Text)</b><br>{{textPrompt2}}</span></span>
+		<span class="textPrompt" id="pro"><section id="websiteName1" class="typeOfScience">{{websiteName}}</section><br><section class="websiteName">Source: {{source1}}</section><br><span id="stanceExplanation1">{{stanceExplanation}} </span><br><br><section class="images" id="image1"><img class="loadingGif" v-if="loadingGif" :src="imgURL1" ></section><br> <span class="originaTextandPrompt"><b>Sampled Text</b><br> {{originalText1}}<br><br><b>Image Description (Generated from Sampled Text)</b><br>{{textPrompt1}}</span></span>
+		<span class="textPrompt" id="anti"><section id="websiteName2" class="typeOfScience">{{websiteName2}}</section><br><section class="websiteName">Source: {{source2}}</section><br><span id="stanceExplanation2">{{stanceExplanation2}} </span><br><br><section class="images" id="image2"><img class="loadingGif" v-if="loadingGif" :src="imgURL2" ></section><br> <span class="originaTextandPrompt"><b>Sampled Text</b><br> {{originalText2}}<br><br><b>Image Description (Generated from Sampled Text)</b><br>{{textPrompt2}}</span></span>
 	</p>
   </div>
 </template>
@@ -362,6 +362,9 @@ console.log("random number " + this.itemNumber)
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+div {
+text-align: center; 
+}
 #title {
 font-size: 50px;
 color: #FFC300;
@@ -378,20 +381,18 @@ padding: 20px;
 font-size: 20px; 
 text-align: left; 
 border: none;
+margin: auto;
 width: 90%;
 }
 .images {
 color: white;
-background: rgba(0, 0, 0, 0.6);
-padding: 20px; 
+background: none;
 font-size: 20px; 
-text-align: center; 
 border: none;
 width: 90%;
-padding-bottom: 3.75%;
 }
 img {
-width: 90%;
+width: 111%;
 }
 .typeOfScience {
 color: black;
@@ -429,6 +430,7 @@ height: 200px;
 width: 50%;
 font-size: 34px;
 font-weight: bold;
+width: 50%;
 }
 #forButton {
 background: #66FF00; 
