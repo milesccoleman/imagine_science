@@ -1,13 +1,12 @@
 <template>
   <div id="body" class="generalContainer">
-  <p v-if="showGenerate" id="explanation">For many of us, it can be astonishingly difficult to understand when people disagree with established scientific facts.<br><br>
-  We created this project in efforts to better understand people who disagree with science.<br><br>
-  Using AI, the system draws on real peoples' words about science, rendering them into artistic visualizations, in turn, offering glimpses at their imaginings of science--to "see" through their eyes.<br><br>
+  <p v-if="showGenerate" id="explanation">
+  Using AI, this project draws on real peoples' words about science to render them into artistic visualizations. <br><br>Our hope is that the imagery will offer glimpses at science through others' eyes, in turn, supporting better understanding of those moments in which people disagree about science.<br><br>
   Click <button id="generateButton" @click="doImageThings">Imagine Science</button> and see for yourself.
   </p>
     
   <span v-if="showImages" id="buttonArray"><button id="vaccinationButton" @click="vaccination">Vaccination</button><button id="climateChangeButton" @click="climateChange">Climate Change</button><button id="roundEarthButton" @click="roundEarth">Round Earth</button></span><br><br>
-  <span v-if="showImages" id="toggle"><button id="forButton" class="toggle" @click="trigger" >For</button><button id="againstButton" class="toggle" @click="trigger2">Against</button></span>
+  <span v-if="showImages" id="toggle"><button id="forButton" class="toggle" @click="trigger" >For<br>{{typeOfScience}}</button><button id="againstButton" class="toggle" @click="trigger2">Against<br>{{typeOfScience}}</button></span>
 	<p v-if="showImages" id="imagesContainer">
 		<span class="textPrompt" id="pro"><section id="websiteName1" class="typeOfScience">{{websiteName}}</section><br><section class="websiteName">Source: {{source1}}</section><br><span id="stanceExplanation1">{{stanceExplanation}} </span><br><br><section class="images" id="image1"><img class="loadingGif" v-if="loadingGif" :src="imgURL1" ></section><br><br> <span class="originaTextandPrompt"><b>Sampled Text</b><br> {{originalText1}}<br><br><b>Image Description (Generated from Sampled Text)</b><br>{{textPrompt1}}</span></span>
 		<span class="textPrompt" id="anti"><section id="websiteName2" class="typeOfScience">{{websiteName2}}</section><br><section class="websiteName">Source: {{source2}}</section><br><span id="stanceExplanation2">{{stanceExplanation2}} </span><br><br><section class="images" id="image2"><img class="loadingGif" v-if="loadingGif" :src="imgURL2" ></section><br><br> <span class="originaTextandPrompt"><b>Sampled Text</b><br> {{originalText2}}<br><br><b>Image Description (Generated from Sampled Text)</b><br>{{textPrompt2}}</span></span>
@@ -145,6 +144,7 @@ console.log("random number " + this.itemNumber)
 		this.stanceExplanation2 = this.promptAndImageData[0].vaccination.against_stance_explanation
 		this.source1 = this.promptAndImageData[0].vaccination.for_source
 		this.source2 = this.promptAndImageData[0].vaccination.against_source
+		this.typeOfScience = "Vaccination"
 		
 		if (this.itemNumber == 1) {
 			this.textPrompt1 = this.promptAndImageData[0].vaccination.for_prompt1
@@ -189,6 +189,7 @@ console.log("random number " + this.itemNumber)
 		this.stanceExplanation2 = this.promptAndImageData[0].climate_change.against_stance_explanation
 		this.source1 = this.promptAndImageData[0].climate_change.for_source
 		this.source2 = this.promptAndImageData[0].climate_change.against_source
+		this.typeOfScience = "Climate Change"
 		
 		if (this.itemNumber == 1) {
 			this.textPrompt1 = this.promptAndImageData[0].climate_change.for_prompt1
@@ -235,6 +236,7 @@ console.log("random number " + this.itemNumber)
 		this.stanceExplanation2 = this.promptAndImageData[0].flat_earth.against_stance_explanation
 		this.source1 = this.promptAndImageData[0].flat_earth.for_source
 		this.source2 = this.promptAndImageData[0].flat_earth.against_source
+		this.typeOfScience = "Round Earth"
 		
 		if (this.itemNumber == 1) {
 			this.textPrompt1 = this.promptAndImageData[0].flat_earth.for_prompt1
@@ -377,7 +379,6 @@ font-size: 20px;
 text-align: left; 
 border: none;
 width: 90%;
-margin-left: 3.5%;
 }
 .images {
 color: white;
@@ -424,9 +425,9 @@ overflow-wrap: break-word;
 .toggle {
 background: rgba(0, 0, 0, 0.3);
 border: none;
-height: 100px;
+height: 200px;
 width: 50%;
-font-size: 50px;
+font-size: 34px;
 font-weight: bold;
 }
 #forButton {
@@ -435,12 +436,12 @@ background: #66FF00;
 #stanceExplanation1 {
 color: #66FF00;
 font-weight: bold;
-font-size: 25px;
+font-size: 30px;
 }
 #stanceExplanation2 {
 color: #FF007F;
 font-weight: bold;
-font-size: 25px;
+font-size: 30px;
 }
 #toggle {
 width: 100%;
