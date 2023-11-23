@@ -2,7 +2,7 @@
   <div id="body" class="generalContainer">
   <p v-if="showGenerate" id="explanation">
   Using AI, this project draws on real peoples' words about science to render them into artistic visualizations. <br><br>Our hope is that the imagery will offer glimpses at science through others' eyes, in turn, supporting better understanding of those moments in which people disagree about science.<br><br>
-  Click <button id="generateButton" @click="doImageThings">Imagine Science</button> and see for yourself.
+  Click <button id="generateButton" @click="doImageThings">Imagine Science</button> and see for yourself.<br><br><br><br><br><br><br><br><br>
   </p>
     
   <span v-if="showImages" id="toggle"><button id="forButton" class="toggle" @click="trigger" >For<br>{{typeOfScience}}</button><button id="againstButton" class="toggle" @click="trigger2">Against<br>{{typeOfScience}}</button></span><br><br>
@@ -543,6 +543,9 @@ font-weight: bold;
 }
 #anti, #image2 {
 display: none;
+}
+#explanation {
+font-size: 25px;
 }
 
 </style>
