@@ -5,11 +5,13 @@
   Click <button id="generateButton" @click="doImageThings">Imagine Science</button> and see for yourself.
   </p>
     
+  <span v-if="showImages" id="toggle"><button id="forButton" class="toggle" @click="trigger" >For<br>{{typeOfScience}}</button><button id="againstButton" class="toggle" @click="trigger2">Against<br>{{typeOfScience}}</button></span><br><br>
   <span v-if="showImages" id="buttonArray"><button id="vaccinationButton" @click="vaccination">Vaccination</button><button id="climateChangeButton" @click="climateChange">Climate Change</button><button id="roundEarthButton" @click="roundEarth">Round Earth</button></span><br><br>
-  <span v-if="showImages" id="toggle"><button id="forButton" class="toggle" @click="trigger" >For<br>{{typeOfScience}}</button><button id="againstButton" class="toggle" @click="trigger2">Against<br>{{typeOfScience}}</button></span>
+  <button v-if="showImages" id="generateButton2" @click="doImageThings2">See New Images</button>
+
 	<p v-if="showImages" id="imagesContainer">
-		<span class="textPrompt" id="pro"><section id="websiteName1" class="typeOfScience">{{websiteName}}</section><br><section class="websiteName">Source: {{source1}}</section><br><span id="stanceExplanation1">{{stanceExplanation}} </span><br><br><section class="images" id="image1"><img class="loadingGif" v-if="loadingGif" :src="imgURL1" ></section><br> <span class="originaTextandPrompt"><b>Sampled Text</b><br> {{originalText1}}<br><br><b>Image Description (Generated from Sampled Text)</b><br>{{textPrompt1}}</span></span>
-		<span class="textPrompt" id="anti"><section id="websiteName2" class="typeOfScience">{{websiteName2}}</section><br><section class="websiteName">Source: {{source2}}</section><br><span id="stanceExplanation2">{{stanceExplanation2}} </span><br><br><section class="images" id="image2"><img class="loadingGif" v-if="loadingGif" :src="imgURL2" ></section><br> <span class="originaTextandPrompt"><b>Sampled Text</b><br> {{originalText2}}<br><br><b>Image Description (Generated from Sampled Text)</b><br>{{textPrompt2}}</span></span>
+		<span class="textPrompt" id="pro"><section id="websiteName1" class="typeOfScience">{{websiteName}}</section><br><span id="stanceExplanation1">{{stanceExplanation}} </span><br><br><section class="images" id="image1"><img class="loadingGif" v-if="loadingGif" :src="imgURL1" ></section><br> <span class="originaTextandPrompt"><b>Sampled Text</b><br> {{originalText1}}<br><br><b>Image Description (Generated from Sampled Text)</b><br>{{textPrompt1}}</span><br><br><section class="websiteName">Source: {{source1}}</section><br></span>
+		<span class="textPrompt" id="anti"><section id="websiteName2" class="typeOfScience">{{websiteName2}}</section><br><span id="stanceExplanation2">{{stanceExplanation2}} </span><br><br><section class="images" id="image2"><img class="loadingGif" v-if="loadingGif" :src="imgURL2" ></section><br> <span class="originaTextandPrompt"><b>Sampled Text</b><br> {{originalText2}}<br><br><b>Image Description (Generated from Sampled Text)</b><br>{{textPrompt2}}</span><br><br><section class="websiteName">Source: {{source2}}</section><br></span>
 	</p>
   </div>
 </template>
@@ -175,8 +177,8 @@ console.log("random number " + this.itemNumber)
 		this.originalText1 = this.promptAndImageData[0].vaccination.for_original_text
 		this.originalText2 = this.promptAndImageData[0].vaccination.against_original_text
 		document.getElementById("vaccinationButton").style.backgroundColor="#FFC300" 
-		document.getElementById("climateChangeButton").style.backgroundColor="rgba(0, 0, 0, 0.3)" 
-		document.getElementById("roundEarthButton").style.backgroundColor="rgba(0, 0, 0, 0.3)" 
+		document.getElementById("climateChangeButton").style.backgroundColor="rgba(233, 244, 245, 0.3)" 
+		document.getElementById("roundEarthButton").style.backgroundColor="rgba(233, 244, 245, 0.3)" 
 		document.getElementById("websiteName1").style.backgroundColor="#FFC300" 
 		document.getElementById("websiteName2").style.backgroundColor="#FFC300"
 	},
@@ -220,9 +222,9 @@ console.log("random number " + this.itemNumber)
 		this.originalText1 = this.promptAndImageData[0].climate_change.for_original_text
 		this.originalText2 = this.promptAndImageData[0].climate_change.against_original_text
 	
-		document.getElementById("vaccinationButton").style.backgroundColor="rgba(0, 0, 0, 0.3)" 
+		document.getElementById("vaccinationButton").style.backgroundColor="rgba(233, 244, 245, 0.3)" 
 		document.getElementById("climateChangeButton").style.backgroundColor="#0096FF" 
-		document.getElementById("roundEarthButton").style.backgroundColor="rgba(0, 0, 0, 0.3)" 
+		document.getElementById("roundEarthButton").style.backgroundColor="rgba(233, 244, 245, 0.3)" 
 		document.getElementById("websiteName1").style.backgroundColor="#0096FF" 
 		document.getElementById("websiteName2").style.backgroundColor="#0096FF"
 		
@@ -267,8 +269,8 @@ console.log("random number " + this.itemNumber)
 		this.originalText1 = this.promptAndImageData[0].flat_earth.for_original_text
 		this.originalText2 = this.promptAndImageData[0].flat_earth.against_original_text
 	
-		document.getElementById("vaccinationButton").style.backgroundColor="rgba(0, 0, 0, 0.3)" 
-		document.getElementById("climateChangeButton").style.backgroundColor="rgba(0, 0, 0, 0.3)" 
+		document.getElementById("vaccinationButton").style.backgroundColor="rgba(233, 244, 245, 0.3)" 
+		document.getElementById("climateChangeButton").style.backgroundColor="rgba(233, 244, 245, 0.3)" 
 		document.getElementById("roundEarthButton").style.backgroundColor="#08e8de" 
 		document.getElementById("websiteName1").style.backgroundColor="#08e8de" 
 		document.getElementById("websiteName2").style.backgroundColor="#08e8de" 
@@ -277,11 +279,11 @@ console.log("random number " + this.itemNumber)
 	
 	forScience: function () {
 		document.getElementById("forButton").style.backgroundColor="#66FF00" 
-		document.getElementById("againstButton").style.backgroundColor="rgba(0, 0, 0, 0.3)"
+		document.getElementById("againstButton").style.backgroundColor="rgba(233, 244, 245, 0.3)"
 	},
 	
 	againstScience: function () {
-		document.getElementById("forButton").style.backgroundColor="rgba(0, 0, 0, 0.3)" 
+		document.getElementById("forButton").style.backgroundColor="rgba(233, 244, 245, 0.3)" 
 		document.getElementById("againstButton").style.backgroundColor="#FF007F"
 	},
   
@@ -296,6 +298,46 @@ console.log("random number " + this.itemNumber)
 			//this.getImageBasedOnText2()
 		}
 	},
+
+	reDoImageThings2: function () {
+		this.doImageThings2()
+	}, 
+	
+	doImageThings2: function () {
+	
+			// input from the user
+			const min = 1
+			const max = 3
+
+			// generating a random number
+			const a = Math.floor(Math.random() * (max - min + 1)) + min;
+			
+			if (a == this.itemNumber) {
+				this.reDoImageThings2()
+			}
+			else {
+				this.itemNumber = a
+				// display a random number
+				console.log("random number " + this.itemNumber)
+
+				this.showGenerate = false
+				this.showImages = true
+				this.loadingGif = true
+			
+				if (this.typeOfScience == "Vaccination"){
+					this.vaccination()
+				}
+			
+				if (this.typeOfScience == "Climate Change"){
+					this.climateChange()
+				}
+			
+				if (this.typeOfScience == "Round Earth"){
+					this.roundEarth()
+				}
+			}
+			
+	}, 
 	
 	trigger: function () {
 		this.forScience()
@@ -378,7 +420,7 @@ width: 100%;
 color: white;
 background: rgba(0, 0, 0, 0.6);
 padding: 20px; 
-font-size: 20px; 
+font-size: 18px; 
 text-align: left; 
 border: none;
 margin: auto;
@@ -405,15 +447,18 @@ border: none;
 }
 #websiteName1 {
 background: #FFC300; 
+font-size: 30px;
+height: 100%;
 }
 #websiteName2 {
 background: #FFC300; 
+font-size: 30px;
 }
 #buttonArray {
 padding-bottom: 20px;
 }
 .websiteName {
-font-size: 25px;
+font-size: 15px;
 color: black; 
 font-weight: bold;
 background: #ccff00;
@@ -424,11 +469,10 @@ overflow-wrap: break-word;
 .originaTextandPrompt {
 }
 .toggle {
-background: rgba(0, 0, 0, 0.3);
+background: rgba(233, 244, 245, 0.3);
 border: none;
-height: 200px;
 width: 50%;
-font-size: 34px;
+font-size: 20px;
 font-weight: bold;
 width: 50%;
 }
@@ -438,12 +482,12 @@ background: #66FF00;
 #stanceExplanation1 {
 color: #66FF00;
 font-weight: bold;
-font-size: 30px;
+font-size: 20px;
 }
 #stanceExplanation2 {
 color: #FF007F;
 font-weight: bold;
-font-size: 30px;
+font-size: 20px;
 }
 #toggle {
 width: 100%;
@@ -452,36 +496,45 @@ width: 100%;
 background: #ccff00;
 border: none;
 height: 50px;
-font-size: 40px;
+font-size: 30px;
 font-weight: bold;
 }
+
+#generateButton2 {
+background: #ccff00;
+border: none;
+height: 12%;
+font-size: 28px;
+font-weight: bold;
+}
+
 #vaccinationButton {
 background: #FFC300;
 border: none;
-height: 50px;
-font-size: 40px;
+height: 8%;
+font-size: 22px;
 font-weight: bold;
-margin: 5px;
+margin: 2px;
 }
 #climateChangeButton {
-background: rgba(0, 0, 0, 0.3);
+background: rgba(233, 244, 245, 0.3);
 border: none;
-height: 50px;
-font-size: 40px;
+height: 8%;
+font-size: 22px;
 font-weight: bold;
 margin: 5px;
 }
 #roundEarthButton {
-background: rgba(0, 0, 0, 0.3);
+background: rgba(233, 244, 245, 0.3);
 border: none;
-height: 50px;
-font-size: 40px;
+height: 8%;
+font-size: 22px;
 font-weight: bold;
 margin: 5px;
 }
 #explanation {
 color: white; 
-font-size: 30px;
+font-size: 20px;
 text-align: left; 
 width: 85%;
 margin-top: 10%;
