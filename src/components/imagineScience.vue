@@ -177,8 +177,8 @@ console.log("random number " + this.itemNumber)
 		this.originalText1 = this.promptAndImageData[0].vaccination.for_original_text
 		this.originalText2 = this.promptAndImageData[0].vaccination.against_original_text
 		document.getElementById("vaccinationButton").style.backgroundColor="#FFC300" 
-		document.getElementById("climateChangeButton").style.backgroundColor="rgba(233, 244, 245, 0.3)" 
-		document.getElementById("roundEarthButton").style.backgroundColor="rgba(233, 244, 245, 0.3)" 
+		document.getElementById("climateChangeButton").style.backgroundColor="rgba(233, 244, 245, 0.5)" 
+		document.getElementById("roundEarthButton").style.backgroundColor="rgba(233, 244, 245, 0.5)" 
 		document.getElementById("websiteName1").style.backgroundColor="#FFC300" 
 		document.getElementById("websiteName2").style.backgroundColor="#FFC300"
 	},
@@ -222,9 +222,9 @@ console.log("random number " + this.itemNumber)
 		this.originalText1 = this.promptAndImageData[0].climate_change.for_original_text
 		this.originalText2 = this.promptAndImageData[0].climate_change.against_original_text
 	
-		document.getElementById("vaccinationButton").style.backgroundColor="rgba(233, 244, 245, 0.3)" 
+		document.getElementById("vaccinationButton").style.backgroundColor="rgba(233, 244, 245, 0.5)" 
 		document.getElementById("climateChangeButton").style.backgroundColor="#0096FF" 
-		document.getElementById("roundEarthButton").style.backgroundColor="rgba(233, 244, 245, 0.3)" 
+		document.getElementById("roundEarthButton").style.backgroundColor="rgba(233, 244, 245, 0.5)" 
 		document.getElementById("websiteName1").style.backgroundColor="#0096FF" 
 		document.getElementById("websiteName2").style.backgroundColor="#0096FF"
 		
@@ -269,8 +269,8 @@ console.log("random number " + this.itemNumber)
 		this.originalText1 = this.promptAndImageData[0].flat_earth.for_original_text
 		this.originalText2 = this.promptAndImageData[0].flat_earth.against_original_text
 	
-		document.getElementById("vaccinationButton").style.backgroundColor="rgba(233, 244, 245, 0.3)" 
-		document.getElementById("climateChangeButton").style.backgroundColor="rgba(233, 244, 245, 0.3)" 
+		document.getElementById("vaccinationButton").style.backgroundColor="rgba(233, 244, 245, 0.5)" 
+		document.getElementById("climateChangeButton").style.backgroundColor="rgba(233, 244, 245, 0.5)" 
 		document.getElementById("roundEarthButton").style.backgroundColor="#08e8de" 
 		document.getElementById("websiteName1").style.backgroundColor="#08e8de" 
 		document.getElementById("websiteName2").style.backgroundColor="#08e8de" 
@@ -279,11 +279,11 @@ console.log("random number " + this.itemNumber)
 	
 	forScience: function () {
 		document.getElementById("forButton").style.backgroundColor="#66FF00" 
-		document.getElementById("againstButton").style.backgroundColor="rgba(233, 244, 245, 0.3)"
+		document.getElementById("againstButton").style.backgroundColor="rgba(233, 244, 245, 0.5)"
 	},
 	
 	againstScience: function () {
-		document.getElementById("forButton").style.backgroundColor="rgba(233, 244, 245, 0.3)" 
+		document.getElementById("forButton").style.backgroundColor="rgba(233, 244, 245, 0.5)" 
 		document.getElementById("againstButton").style.backgroundColor="#FF007F"
 	},
   
@@ -469,7 +469,7 @@ overflow-wrap: break-word;
 .originaTextandPrompt {
 }
 .toggle {
-background: rgba(233, 244, 245, 0.3);
+background: rgba(233, 244, 245, 0.5);
 border: none;
 width: 50%;
 font-size: 20px;
@@ -517,7 +517,7 @@ font-weight: bold;
 margin: 2px;
 }
 #climateChangeButton {
-background: rgba(233, 244, 245, 0.3);
+background: rgba(233, 244, 245, 0.5);
 border: none;
 height: 8%;
 font-size: 22px;
@@ -525,7 +525,7 @@ font-weight: bold;
 margin: 5px;
 }
 #roundEarthButton {
-background: rgba(233, 244, 245, 0.3);
+background: rgba(233, 244, 245, 0.5);
 border: none;
 height: 8%;
 font-size: 22px;
