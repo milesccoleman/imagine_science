@@ -133,6 +133,33 @@ this.itemNumber = a
 
 // display a random number
 console.log("random number " + this.itemNumber)
+
+document.addEventListener('keyup', (event) => {
+  var name = event.key;
+  if (name === 'i') {
+    this.doImageThings()
+  }
+    if (name === 'm') {
+    this.vaccination()
+  }
+  if (name === 'a') {
+    this.climateChange()
+  }
+  if (name === 'g') {
+    this.roundEarth()
+  }
+    if (name === 'n') {
+    this.trigger()
+  }
+  if (name === 'e') {
+    this.trigger2()
+  }
+  if (name === 's') {
+    this.doImageThings2()
+  }
+}, false);
+
+// https://yukkurigames.com/enjoyable/
   
   },
 
@@ -338,6 +365,7 @@ console.log("random number " + this.itemNumber)
 			}
 			
 	}, 
+	
 	
 	trigger: function () {
 		this.forScience()
