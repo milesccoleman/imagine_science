@@ -1,5 +1,5 @@
 <template>
-  <div id="body" class="generalContainer">
+  <div onkeyup="myFunction()" id="body" class="generalContainer">
   <p v-if="showGenerate" id="explanation">
   Using AI, this project draws on real peoples' words about science to render them into artistic visualizations. <br><br>Our hope is that the imagery will offer glimpses at science through others' eyes, in turn, supporting better understanding of those moments in which people disagree about science.<br><br>
   Click <button id="generateButton" @click="doImageThings">Imagine Science</button> and see for yourself.<br><br><br><br><br><br><br><br><br>
@@ -7,12 +7,13 @@
     
   <span v-if="showImages" id="toggle"><button id="forButton" class="toggle" @click="trigger" >For<br>{{typeOfScience}}</button><button id="againstButton" class="toggle" @click="trigger2">Against<br>{{typeOfScience}}</button></span><br><br>
   <span v-if="showImages" id="buttonArray"><button id="vaccinationButton" @click="vaccination">Vaccination</button><button id="climateChangeButton" @click="climateChange">Climate Change</button><button id="roundEarthButton" @click="roundEarth">Round Earth</button></span><br><br>
-  <button v-if="showImages" id="generateButton2" @click="doImageThings2">See New Images</button>
+  <button v-if="showImages" id="generateButton2" @click="doImageThings2">See New Image</button>
 
 	<p v-if="showImages" id="imagesContainer">
 		<span class="textPrompt" id="pro"><section id="websiteName1" class="typeOfScience">{{websiteName}}</section><br><span id="stanceExplanation1">{{stanceExplanation}} </span><br><br><section class="images" id="image1"><img class="loadingGif" v-if="loadingGif" :src="imgURL1" ></section><br> <span class="originaTextandPrompt"><b>Sampled Text</b><br> {{originalText1}}<br><br><b>Image Description (Generated from Sampled Text)</b><br>{{textPrompt1}}</span><br><br><section class="websiteName">Source: {{source1}}</section><br></span>
 		<span class="textPrompt" id="anti"><section id="websiteName2" class="typeOfScience">{{websiteName2}}</section><br><span id="stanceExplanation2">{{stanceExplanation2}} </span><br><br><section class="images" id="image2"><img class="loadingGif" v-if="loadingGif" :src="imgURL2" ></section><br> <span class="originaTextandPrompt"><b>Sampled Text</b><br> {{originalText2}}<br><br><b>Image Description (Generated from Sampled Text)</b><br>{{textPrompt2}}</span><br><br><section class="websiteName">Source: {{source2}}</section><br></span>
 	</p>
+	<img id="qr" v-if="showImages" src="/qr.png">
   </div>
 </template>
 
@@ -61,7 +62,7 @@ export default {
       "against_prompt2": "NVIC, a guardian of enlightenment, protects against shadows of vaccine harm. Advocacy flows like a river, their shield is the consent of informed hearts. Flexibility weaves through laws like a bridge of beliefs, where freedom and protection dance in harmony.",
       "for_prompt3": "In the garden of health, 'Vaccinate Your Family' blossoms with purpose. Their daily toil tends to the delicate blooms of awareness and understanding, nurturing the confidence in safety, and weaving a tapestry of access to life-saving vaccines. Advocacy is their sun, policies their fertile soil.",
       "against_prompt3": "NVIC, a sentinel of enlightenment, shields the garden of health. Advocacy petals bloom, bearing the essence of informed consent, while the flexible leaves of exemptions - medical, religious, and conscience - intertwine like threads of individual choice in the tapestry of public health, a vision of wisdom and liberty.",
-      "for_stance_explanation": "Vaccinate Your Children is an organization that aligns with scientific consensus in viewing vaccines as necessary and safe.",
+      "for_stance_explanation": "Vaccinate Your Family is an organization that aligns with scientific consensus in viewing vaccines as necessary and safe.",
       "against_stance_explanation": "National Vaccine Information Center is an organization suspicious of the safety of vaccines.",
       "for_source": "Vaccinate Your Family Mission Statement (https://vaccinateyourfamily.org/our-mission-values/)",
       "against_source": "National Vaccine Information Center About Page (https://www.nvic.org/about/mission-vision)",
@@ -135,6 +136,7 @@ this.itemNumber = a
 console.log("random number " + this.itemNumber)
 
 document.addEventListener('keyup', (event) => {
+
   var name = event.key;
   if (name === 'i') {
     this.doImageThings()
@@ -164,6 +166,10 @@ document.addEventListener('keyup', (event) => {
   },
 
   methods: {
+  
+  reload: function () {
+location.reload()
+  }, 
   
 	vaccination: function () {
 	
@@ -574,6 +580,9 @@ display: none;
 }
 #explanation {
 font-size: 25px;
+}
+#qr {
+width: 250px; 
 }
 
 </style>
